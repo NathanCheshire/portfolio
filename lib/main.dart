@@ -25,47 +25,64 @@ class PortfolioPage extends StatefulWidget {
 }
 
 class _PortfolioPageState extends State<PortfolioPage> {
-  double floatinButtonSize = 40.0;
-  double bottomBarHeight = 50.0;
+  double floatingButtonSize = 40.0;
+  double bottomBarHeight = 60.0;
+
+  Color primaryBackground = Color.fromARGB(255, 18, 20, 24);
+  Color secondaryBackground = Color.fromARGB(255, 27, 31, 36);
+
+  Color primaryThemeColor = Color.fromARGB(255, 0, 195, 154);
+
+  Color offWhite = Color.fromARGB(255, 245, 245, 245);
+  Color offBlack = Color.fromARGB(255, 15, 15, 15);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: secondaryBackground,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      appBar: AppBar(
-        title: Text("NathanCheshire.com"),
-      ),
+      appBar: null,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed asdf butt this many times:',
-            ),
-          ],
+          children: <Widget>[],
         ),
       ),
       bottomNavigationBar: Container(
         width: MediaQuery.of(context).size.width,
         height: bottomBarHeight,
-        color: Colors.orange,
+        color: primaryBackground,
       ),
       floatingActionButton: Stack(
         children: <Widget>[
           Positioned(
-            right: floatinButtonSize * 2 + 20 * 3.5,
+            right: floatingButtonSize * 2 + 20 * 3.5,
             bottom: 0,
-            child: FloatingButton(icon: "Gmail.svg"),
+            child: FloatingButton(
+              icon: "Gmail.svg",
+              backgroundColor: secondaryBackground,
+              splashColor: primaryThemeColor,
+            ),
           ),
           Positioned(
             right: 10,
             bottom: 0,
-            child: FloatingButton(icon: "Discord.svg", color: Colors.white),
+            child: FloatingButton(
+              icon: "Discord.svg",
+              backgroundColor: secondaryBackground,
+              color: Colors.white,
+              splashColor: primaryThemeColor,
+            ),
           ),
           Positioned(
-            right: floatinButtonSize + 20 * 2,
+            right: floatingButtonSize + 20 * 2,
             bottom: 0,
-            child: FloatingButton(icon: "GitHub.svg", color: Colors.white),
+            child: FloatingButton(
+              icon: "GitHub.svg",
+              color: Colors.white,
+              backgroundColor: secondaryBackground,
+              splashColor: primaryThemeColor,
+            ),
           ),
         ],
       ),
@@ -76,24 +93,28 @@ class _PortfolioPageState extends State<PortfolioPage> {
 class FloatingButton extends StatelessWidget {
   final String icon;
   final Color? color;
+  final Color? backgroundColor;
+  final Color? splashColor;
 
   const FloatingButton({
     Key? key,
     required this.icon,
     this.color,
+    this.backgroundColor,
+    this.splashColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
       shape: BeveledRectangleBorder(borderRadius: BorderRadius.zero),
-      splashColor: Color.fromARGB(255, 255, 255, 255),
-      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      splashColor: splashColor,
+      backgroundColor: backgroundColor,
       onPressed: () => {},
       child: SvgPicture.asset(
         "assets" + "/" + icon,
-        height: 40.0,
-        width: 40.0,
+        height: 45.0,
+        width: 45.0,
         color: color,
         allowDrawingOutsideViewBox: true,
       ),
