@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/portfolio_colors.dart';
+import 'package:portfolio/constants/portfolio_colors.dart';
 
 import 'external_link_button.dart';
-import 'portfolio_numbers.dart';
+import 'constants/portfolio_numbers.dart';
 
 class FloatingButtons extends StatelessWidget {
   @override

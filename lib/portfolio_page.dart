@@ -1,13 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/floating_buttons.dart';
-import 'package:portfolio/pages/about_me_page.dart';
-import 'package:portfolio/portfolio_colors.dart';
-import 'package:portfolio/portfolio_numbers.dart';
-import 'package:portfolio/portfolio_page_route.dart';
+
+import 'package:portfolio/constants/portfolio_colors.dart';
+import 'package:portfolio/constants/portfolio_numbers.dart';
+import 'package:portfolio/views/initial_page.dart';
+
 import 'bottom_bar.dart';
+import 'navigation_button.dart';
 
 class PortfolioPage extends StatefulWidget {
   final int index;
@@ -64,24 +65,27 @@ class _PortfolioPageState extends State<PortfolioPage>
               alignment: WrapAlignment.center,
               children: [
                 NavigationButton(
-                  text: "About me",
+                  text: "Home",
                   index: 0,
-                  flexibleChildWidget: AboutMePage(),
+                  flexibleChildWidget: InitialPage(),
+                ),
+                NavigationButton(
+                  text: "About me",
+                  index: 1,
+                  flexibleChildWidget: Container(),
                 ),
                 NavigationButton(
                     text: "Projects",
-                    index: 1,
-                    flexibleChildWidget: AboutMePage()),
-                NavigationButton(
-                    text: "GitHub",
                     index: 2,
-                    flexibleChildWidget: AboutMePage()),
+                    flexibleChildWidget: Container()),
+                NavigationButton(
+                    text: "GitHub", index: 3, flexibleChildWidget: Container()),
                 NavigationButton(
                     text: "Experience",
-                    index: 3,
-                    flexibleChildWidget: AboutMePage()),
+                    index: 4,
+                    flexibleChildWidget: Container()),
                 NavigationButton(
-                    text: "Blog", index: 4, flexibleChildWidget: AboutMePage()),
+                    text: "Blog", index: 5, flexibleChildWidget: Container()),
               ],
             ),
           ),
@@ -91,58 +95,5 @@ class _PortfolioPageState extends State<PortfolioPage>
       bottomNavigationBar: BottomBar(),
       floatingActionButton: FloatingButtons(),
     );
-  }
-}
-
-// todo use this style for the ring font
-
-// GoogleFonts.prompt(
-//       textStyle: TextStyle(
-//         fontSize: 18,
-//         fontWeight: FontWeight.bold,
-//         color: offWhite,
-//       ),
-//     )
-
-class NavigationButton extends StatelessWidget {
-  const NavigationButton({
-    Key? key,
-    required this.index,
-    required this.text,
-    required this.flexibleChildWidget,
-  }) : super(key: key);
-
-  final String text;
-  final int index;
-  final Widget flexibleChildWidget;
-
-  @override
-  Widget build(BuildContext context) {
-    return CupertinoButton(
-        child: Text(text,
-            textAlign: TextAlign.center,
-            style: GoogleFonts.passionOne(
-              textStyle: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: this.index == getCurrentIndex()
-                    ? primaryThemeColor
-                    : offWhite,
-              ),
-            )),
-        onPressed: () {
-          if (getCurrentIndex() == this.index) {
-            return;
-          }
-
-          setCurrentIndex(this.index);
-          Navigator.push(
-              context,
-              PortfoliPageRoute(
-                  widget: PortfolioPage(
-                index: this.index,
-                flexibleChildWidget: flexibleChildWidget,
-              )));
-        });
   }
 }

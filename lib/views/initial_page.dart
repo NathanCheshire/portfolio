@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_arc_text/flutter_arc_text.dart';
-import 'package:portfolio/portfolio_colors.dart';
-import 'package:portfolio/portfolio_strings.dart';
+import 'package:portfolio/constants/portfolio_colors.dart';
+import 'package:portfolio/constants/portfolio_strings.dart';
 
-import '../portfolio_numbers.dart';
+import '../constants/portfolio_numbers.dart';
 
-class AboutMePage extends StatefulWidget {
-  const AboutMePage({Key? key}) : super(key: key);
+class InitialPage extends StatefulWidget {
+  const InitialPage({Key? key}) : super(key: key);
 
   @override
-  _AboutMePageState createState() => _AboutMePageState();
+  _InitialPageState createState() => _InitialPageState();
 }
 
-class _AboutMePageState extends State<AboutMePage>
+class _InitialPageState extends State<InitialPage>
     with TickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 15),

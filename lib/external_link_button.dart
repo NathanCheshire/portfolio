@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:portfolio/portfolio_numbers.dart';
+import 'package:portfolio/constants/portfolio_numbers.dart';
 
 class ExternalLinkButton extends StatelessWidget {
   final String icon;
