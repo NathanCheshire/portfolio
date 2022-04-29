@@ -80,36 +80,35 @@ class _PortfolioPageState extends State<PortfolioPage>
             ),
           ),
           Expanded(
-              child: Container(
-                  child: Padding(
-            padding: const EdgeInsets.fromLTRB(10, 50, 10, 0),
-            child: Column(
-              children: [
-                // GoogleFonts.prompt(
-                //       textStyle: TextStyle(
-                //         fontSize: 18,
-                //         fontWeight: FontWeight.bold,
-                //         color: offWhite,
-                //       ),
-                //     )
-                SizedBox(
-                  height: 200,
+              child: Flexible(
+                  child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Container(
+                width: 145 * 2,
+                height: 145 * 2,
+                margin: EdgeInsets.all(100.0),
+                decoration: BoxDecoration(
+                    color: primaryThemeColor, shape: BoxShape.circle),
+              ),
+              CircleAvatar(
+                backgroundImage: NetworkImage(
+                  'assets/Face.jpg',
                 ),
-                RotationTransition(
-                    turns: turnsTween.animate(_controller),
-                    child: ArcText(
-                        radius: 170,
-                        text:
-                            'Nathan Cheshire, advanced Java developer, Flutter developer, passionate about oerating systems, UI/UX, and visualizations.',
-                        textStyle: TextStyle(
-                            fontSize: 18,
-                            color: primaryThemeColor,
-                            fontFamily: "Lato"),
-                        startAngleAlignment: StartAngleAlignment.start,
-                        placement: Placement.outside,
-                        direction: Direction.clockwise)),
-              ],
-            ),
+                radius: 140,
+              ),
+              RotationTransition(
+                  turns: turnsTween.animate(_controller),
+                  child: ArcText(
+                      radius: 170,
+                      text:
+                          'Nathan Cheshire, advanced Java developer, Flutter developer, passionate about oerating systems, UI/UX, and visualizations.',
+                      textStyle: TextStyle(
+                          fontSize: 18, color: offWhite, fontFamily: "Lato"),
+                      startAngleAlignment: StartAngleAlignment.start,
+                      placement: Placement.outside,
+                      direction: Direction.clockwise)),
+            ],
           )))
         ],
       ),
@@ -118,6 +117,16 @@ class _PortfolioPageState extends State<PortfolioPage>
     );
   }
 }
+
+// todo use this style for the ring font
+
+// GoogleFonts.prompt(
+//       textStyle: TextStyle(
+//         fontSize: 18,
+//         fontWeight: FontWeight.bold,
+//         color: offWhite,
+//       ),
+//     )
 
 class NavigationButton extends StatelessWidget {
   const NavigationButton({
