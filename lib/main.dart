@@ -5,8 +5,10 @@ import 'package:portfolio/portfolio_page.dart';
 import 'package:portfolio/portfolio_numbers.dart';
 import 'portfolio_colors.dart';
 import 'portfolio_page_route.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() {
+  setPathUrlStrategy();
   runApp(Portfolio());
 }
 
