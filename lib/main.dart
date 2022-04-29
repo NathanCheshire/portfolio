@@ -1,5 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'PortfoliPageRoute.dart';
 
 void main() {
   runApp(Portfolio());
@@ -42,11 +46,46 @@ class _PortfolioPageState extends State<PortfolioPage> {
       backgroundColor: secondaryBackground,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: null,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: bottomBarHeight,
+            color: primaryBackground,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: Text("Nathan Cheshire",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.bangers(
+                        textStyle: TextStyle(
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                          color: primaryThemeColor,
+                        ),
+                      )),
+                ),
+              ],
+            ),
+          ),
+          CupertinoButton(
+              child: Text("About me",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.passionOne(
+                        textStyle: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: offWhite,
+                        ),
+                      )),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PortfoliPageRoute(widget: SecondPage()));
+              })
+        ],
       ),
       bottomNavigationBar: Container(
         width: MediaQuery.of(context).size.width,
@@ -86,6 +125,17 @@ class _PortfolioPageState extends State<PortfolioPage> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class SecondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 200,
+      height: 200,
+      color: Colors.black,
     );
   }
 }
