@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/portfolio_colors.dart';
+import 'package:portfolio/constants/portfolio_strings.dart';
 
 import 'external_link_button.dart';
 import 'constants/portfolio_numbers.dart';
@@ -22,6 +23,7 @@ class FloatingButtons extends StatelessWidget {
             backgroundColor: secondaryBackground,
             splashColor: primaryThemeColor,
             tooltip: "My Email",
+            link: personalEmailLink,
           ),
         ),
         Positioned(
@@ -32,7 +34,8 @@ class FloatingButtons extends StatelessWidget {
             backgroundColor: secondaryBackground,
             color: Colors.white,
             splashColor: primaryThemeColor,
-            tooltip: "My Discord",
+            tooltip: "Natche#8845",
+            link: discordLink,
           ),
         ),
         Positioned(
@@ -44,6 +47,7 @@ class FloatingButtons extends StatelessWidget {
             backgroundColor: secondaryBackground,
             splashColor: primaryThemeColor,
             tooltip: "My GitHub",
+            link: gitHubLink
           ),
         ),
       ],
