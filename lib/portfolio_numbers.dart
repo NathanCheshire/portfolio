@@ -1,4 +1,7 @@
-double floatingButtonSize = 45.0;
+
+double floatingButtonSize = MAX_FLOATING_BUTTON_SIZE;
+const double MAX_FLOATING_BUTTON_SIZE = 45.0;
+
 const double bottomBarHeight = 60.0;
 
 int currentIndex = 0;
