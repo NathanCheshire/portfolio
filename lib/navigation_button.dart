@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/portfolio_colors.dart';
 import 'package:portfolio/constants/portfolio_numbers.dart';

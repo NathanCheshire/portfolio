@@ -5,6 +5,7 @@ import 'package:portfolio/floating_buttons.dart';
 
 import 'package:portfolio/constants/portfolio_colors.dart';
 import 'package:portfolio/constants/portfolio_numbers.dart';
+import 'package:portfolio/views/blog_page.dart';
 import 'package:portfolio/views/initial_page.dart';
 
 import 'bottom_bar.dart';
@@ -85,7 +86,7 @@ class _PortfolioPageState extends State<PortfolioPage>
                     index: 4,
                     flexibleChildWidget: Container()),
                 NavigationButton(
-                    text: "Blog", index: 5, flexibleChildWidget: Container()),
+                    text: "Blog", index: 5, flexibleChildWidget: BlogPage()),
               ],
             ),
           ),

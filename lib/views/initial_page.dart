@@ -28,36 +28,41 @@ class _InitialPageState extends State<InitialPage>
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Container(
-          width: (ABOUT_ME_CIRCLE_RADIUS + _borderLen) * 2,
-          height: (ABOUT_ME_CIRCLE_RADIUS + _borderLen) * 2,
-          margin: EdgeInsets.all(100.0),
-          decoration:
-              BoxDecoration(color: primaryThemeColor, shape: BoxShape.circle),
-        ),
-        CircleAvatar(
-          backgroundImage: NetworkImage(
-            'assets/Face.jpg',
+    return Center(
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+            width: (ABOUT_ME_CIRCLE_RADIUS * 2 + _borderLen),
+            height: (ABOUT_ME_CIRCLE_RADIUS * 2 + _borderLen),
+            decoration: BoxDecoration(
+              color: primaryThemeColor,
+                border: Border.all(
+                  color: primaryThemeColor,
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(ABOUT_ME_CIRCLE_RADIUS))),
           ),
-          radius: ABOUT_ME_CIRCLE_RADIUS,
-        ),
-        RotationTransition(
-            turns: turnsTween.animate(_controller),
-            child: ArcText(
-                radius: 190,
-                text: circleTextDescription,
-                textStyle: TextStyle(
-                    fontSize: 18,
-                    color: offWhite,
-                    fontFamily: "Prompt",
-                    fontWeight: FontWeight.bold),
-                startAngleAlignment: StartAngleAlignment.start,
-                placement: Placement.outside,
-                direction: Direction.clockwise)),
-      ],
+          CircleAvatar(
+            backgroundImage: NetworkImage(
+              'assets/Face.jpg',
+            ),
+            radius: ABOUT_ME_CIRCLE_RADIUS - _borderLen * 4,
+          ),
+          RotationTransition(
+              turns: turnsTween.animate(_controller),
+              child: ArcText(
+                  radius: ABOUT_ME_CIRCLE_RADIUS + _borderLen * 2,
+                  text: circleTextDescription,
+                  textStyle: TextStyle(
+                      fontSize: 16,
+                      color: offWhite,
+                      fontFamily: "Prompt",
+                      fontWeight: FontWeight.bold),
+                  startAngleAlignment: StartAngleAlignment.start,
+                  placement: Placement.outside,
+                  direction: Direction.clockwise)),
+        ],
+      ),
     );
   }
 }
