@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/portfolio_strings.dart';
-import 'package:portfolio/portfolio_page.dart';
+import 'package:portfolio/portfolio_base_view.dart';
 import 'package:portfolio/constants/portfolio_numbers.dart';
-import 'package:portfolio/views/initial_page.dart';
+import 'package:portfolio/views/home_view.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() {
@@ -16,9 +16,9 @@ class Portfolio extends StatelessWidget {
     return MaterialApp(
         title: webAppTitle,
         debugShowCheckedModeBanner: false,
-        home: PortfolioPage(
+        home: PortfolioBaseView(
           index: getCurrentIndex(),
-          flexibleChildWidget: InitialPage(),
+          flexibleChildWidget: HomeView(),
         ),
         theme: ThemeData(fontFamily: defaultFontFamily));
   }

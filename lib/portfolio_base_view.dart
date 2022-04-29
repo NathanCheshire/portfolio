@@ -5,25 +5,26 @@ import 'package:portfolio/floating_buttons.dart';
 
 import 'package:portfolio/constants/portfolio_colors.dart';
 import 'package:portfolio/constants/portfolio_numbers.dart';
-import 'package:portfolio/views/blog_page.dart';
-import 'package:portfolio/views/initial_page.dart';
+import 'package:portfolio/views/about_me_view.dart';
+import 'package:portfolio/views/blog_view.dart';
+import 'package:portfolio/views/home_view.dart';
 
 import 'bottom_bar.dart';
 import 'navigation_button.dart';
 
-class PortfolioPage extends StatefulWidget {
+class PortfolioBaseView extends StatefulWidget {
   final int index;
   final Widget flexibleChildWidget;
 
-  const PortfolioPage(
+  const PortfolioBaseView(
       {Key? key, required this.index, required this.flexibleChildWidget})
       : super(key: key);
 
   @override
-  _PortfolioPageState createState() => _PortfolioPageState();
+  _PortfolioBaseViewState createState() => _PortfolioBaseViewState();
 }
 
-class _PortfolioPageState extends State<PortfolioPage>
+class _PortfolioBaseViewState extends State<PortfolioBaseView>
     with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
@@ -68,12 +69,12 @@ class _PortfolioPageState extends State<PortfolioPage>
                 NavigationButton(
                   text: "Home",
                   index: 0,
-                  flexibleChildWidget: InitialPage(),
+                  flexibleChildWidget: HomeView(),
                 ),
                 NavigationButton(
                   text: "About me",
                   index: 1,
-                  flexibleChildWidget: Container(),
+                  flexibleChildWidget: AboutMeView(),
                 ),
                 NavigationButton(
                     text: "Projects",
@@ -86,7 +87,7 @@ class _PortfolioPageState extends State<PortfolioPage>
                     index: 4,
                     flexibleChildWidget: Container()),
                 NavigationButton(
-                    text: "Blog", index: 5, flexibleChildWidget: BlogPage()),
+                    text: "Blog", index: 5, flexibleChildWidget: BlogView()),
               ],
             ),
           ),

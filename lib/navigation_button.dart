@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/portfolio_colors.dart';
 import 'package:portfolio/constants/portfolio_numbers.dart';
-import 'package:portfolio/portfolio_page.dart';
+import 'package:portfolio/portfolio_base_view.dart';
 import 'package:portfolio/portfolio_page_route.dart';
 
 class NavigationButton extends StatefulWidget {
@@ -62,7 +62,7 @@ class _NavigationButtonState extends State<NavigationButton> {
               Navigator.push(
                   context,
                   PortfoliPageRoute(
-                      widget: PortfolioPage(
+                      widget: PortfolioBaseView(
                     index: this.widget.index,
                     flexibleChildWidget: widget.flexibleChildWidget,
                   )));

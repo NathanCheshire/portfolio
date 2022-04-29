@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/portfolio_colors.dart';
 
-class BlogPage extends StatefulWidget {
-  const BlogPage({Key? key}) : super(key: key);
+class BlogView extends StatefulWidget {
+  const BlogView({Key? key}) : super(key: key);
 
   @override
-  _BlogPageState createState() => _BlogPageState();
+  _BlogViewState createState() => _BlogViewState();
 }
 
-class _BlogPageState extends State<BlogPage> {
+class _BlogViewState extends State<BlogView> {
   @override
   Widget build(BuildContext context) {
     return Center(

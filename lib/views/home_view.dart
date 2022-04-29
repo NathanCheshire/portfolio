@@ -5,14 +5,14 @@ import 'package:portfolio/constants/portfolio_strings.dart';
 
 import '../constants/portfolio_numbers.dart';
 
-class InitialPage extends StatefulWidget {
-  const InitialPage({Key? key}) : super(key: key);
+class HomeView extends StatefulWidget {
+  const HomeView({Key? key}) : super(key: key);
 
   @override
-  _InitialPageState createState() => _InitialPageState();
+  _HomeViewState createState() => _HomeViewState();
 }
 
-class _InitialPageState extends State<InitialPage>
+class _HomeViewState extends State<HomeView>
     with TickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 15),
@@ -54,7 +54,7 @@ class _InitialPageState extends State<InitialPage>
                   radius: ABOUT_ME_CIRCLE_RADIUS + _borderLen * 2,
                   text: circleTextDescription,
                   textStyle: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
                       color: offWhite,
                       fontFamily: "Prompt",
                       fontWeight: FontWeight.bold),
