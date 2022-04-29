@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/portfolio_colors.dart';
+import 'package:portfolio/constants/portfolio_strings.dart';
+import 'package:portfolio/utils.dart';
 
 import 'constants/portfolio_numbers.dart';
 
@@ -29,7 +31,7 @@ class BottomBar extends StatelessWidget {
                   color: Colors.white,
                   allowDrawingOutsideViewBox: true,
                 ),
-                onPressed: () {},
+                onPressed: () {openUrl(webAppSourceLink);},
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 tooltip: "Website Source",

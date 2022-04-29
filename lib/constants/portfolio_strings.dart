@@ -4,3 +4,5 @@ const String circleTextDescription =
 const String defaultFontFamily = "Prompt";
 
 const String webAppTitle = "Nathan Cheshire";
+
+const String webAppSourceLink = "https://github.com/NathanCheshire/portfolio";

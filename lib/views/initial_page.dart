@@ -24,7 +24,7 @@ class _InitialPageState extends State<InitialPage>
     end: 0,
   );
 
-  int _borderLen = 5;
+  int _borderLen = 3;
 
   @override
   Widget build(BuildContext context) {
