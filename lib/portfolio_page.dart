@@ -1,24 +1,40 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_arc_text/flutter_arc_text.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/floating_buttons.dart';
 import 'package:portfolio/portfolio_colors.dart';
 import 'package:portfolio/portfolio_numbers.dart';
+import 'package:portfolio/portfolio_page_route.dart';
 
 import 'bottom_bar.dart';
-import 'main.dart';
 
 class PortfolioPage extends StatefulWidget {
   final int index;
 
-  const PortfolioPage({Key? key, required this.index}):super(key: key);
+  const PortfolioPage({Key? key, required this.index}) : super(key: key);
 
   @override
   _PortfolioPageState createState() => _PortfolioPageState();
 }
 
-class _PortfolioPageState extends State<PortfolioPage> {
+class _PortfolioPageState extends State<PortfolioPage>
+    with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: MediaQuery.of(context).size);
+
+    late final AnimationController _controller = AnimationController(
+      duration: const Duration(seconds: 20),
+      vsync: this,
+    )..repeat();
+
+    final Tween<double> turnsTween = Tween<double>(
+      begin: 1,
+      end: 0,
+    );
+
     return Scaffold(
       backgroundColor: secondaryBackground,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -40,7 +56,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                         textAlign: TextAlign.center,
                         style: GoogleFonts.bangers(
                           textStyle: TextStyle(
-                            fontSize: 40,
+                            fontSize: 40.sp,
                             fontWeight: FontWeight.bold,
                             color: primaryThemeColor,
                           ),
@@ -62,11 +78,79 @@ class _PortfolioPageState extends State<PortfolioPage> {
                 NavigationButton(text: "Blog", index: 4),
               ],
             ),
-          )
+          ),
+          Expanded(
+              child: Container(
+                  child: Padding(
+            padding: const EdgeInsets.fromLTRB(10, 50, 10, 0),
+            child: Column(
+              children: [
+                // GoogleFonts.prompt(
+                //       textStyle: TextStyle(
+                //         fontSize: 18,
+                //         fontWeight: FontWeight.bold,
+                //         color: offWhite,
+                //       ),
+                //     )
+                SizedBox(
+                  height: 200,
+                ),
+                RotationTransition(
+                    turns: turnsTween.animate(_controller),
+                    child: ArcText(
+                        radius: 170,
+                        text:
+                            'Nathan Cheshire, advanced Java developer, Flutter developer, passionate about oerating systems, UI/UX, and visualizations.',
+                        textStyle: TextStyle(
+                            fontSize: 18,
+                            color: primaryThemeColor,
+                            fontFamily: "Lato"),
+                        startAngleAlignment: StartAngleAlignment.start,
+                        placement: Placement.outside,
+                        direction: Direction.clockwise)),
+              ],
+            ),
+          )))
         ],
       ),
       bottomNavigationBar: BottomBar(),
       floatingActionButton: FloatingButtons(),
     );
+  }
+}
+
+class NavigationButton extends StatelessWidget {
+  const NavigationButton({
+    Key? key,
+    required this.index,
+    required this.text,
+  }) : super(key: key);
+
+  final String text;
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoButton(
+        child: Text(text,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.passionOne(
+              textStyle: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: this.index == getCurrentIndex()
+                    ? primaryThemeColor
+                    : offWhite,
+              ),
+            )),
+        onPressed: () {
+          if (getCurrentIndex() == this.index) {
+            return;
+          }
+
+          setCurrentIndex(this.index);
+          Navigator.push(context,
+              PortfoliPageRoute(widget: PortfolioPage(index: this.index)));
+        });
   }
 }
