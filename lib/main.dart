@@ -46,17 +46,19 @@ class _PortfolioPageState extends State<PortfolioPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
-                  // todo would be cool if this would ripple 3 letters to white and move along and wrap
-                  child: Text("Nathan Cheshire",
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.bangers(
-                        textStyle: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                          color: primaryThemeColor,
-                        ),
-                      )),
+                Flexible(
+                  child: Center(
+                    // todo would be cool if this would ripple 3 letters to white and move along and wrap
+                    child: Text("Nathan Cheshire",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.bangers(
+                          textStyle: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                            color: primaryThemeColor,
+                          ),
+                        )),
+                  ),
                 ),
               ],
             ),

@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio/portfolio_colors.dart';
 
@@ -7,6 +9,8 @@ import 'portfolio_numbers.dart';
 class FloatingButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    setFloatingButtonSize(MediaQuery.of(context).size.width / 20);
+
     return Stack(
         children: <Widget>[
           Positioned(
