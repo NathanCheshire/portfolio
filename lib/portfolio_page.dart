@@ -1,19 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_arc_text/flutter_arc_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/floating_buttons.dart';
+import 'package:portfolio/pages/about_me_page.dart';
 import 'package:portfolio/portfolio_colors.dart';
 import 'package:portfolio/portfolio_numbers.dart';
 import 'package:portfolio/portfolio_page_route.dart';
-
 import 'bottom_bar.dart';
 
 class PortfolioPage extends StatefulWidget {
   final int index;
+  final Widget flexibleChildWidget;
 
-  const PortfolioPage({Key? key, required this.index}) : super(key: key);
+  const PortfolioPage(
+      {Key? key, required this.index, required this.flexibleChildWidget})
+      : super(key: key);
 
   @override
   _PortfolioPageState createState() => _PortfolioPageState();
@@ -24,16 +26,6 @@ class _PortfolioPageState extends State<PortfolioPage>
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, designSize: MediaQuery.of(context).size);
-
-    late final AnimationController _controller = AnimationController(
-      duration: const Duration(seconds: 20),
-      vsync: this,
-    )..repeat();
-
-    final Tween<double> turnsTween = Tween<double>(
-      begin: 1,
-      end: 0,
-    );
 
     return Scaffold(
       backgroundColor: secondaryBackground,
@@ -71,45 +63,29 @@ class _PortfolioPageState extends State<PortfolioPage>
             child: Wrap(
               alignment: WrapAlignment.center,
               children: [
-                NavigationButton(text: "About me", index: 0),
-                NavigationButton(text: "Projects", index: 1),
-                NavigationButton(text: "GitHub", index: 2),
-                NavigationButton(text: "Experience", index: 3),
-                NavigationButton(text: "Blog", index: 4),
+                NavigationButton(
+                  text: "About me",
+                  index: 0,
+                  flexibleChildWidget: AboutMePage(),
+                ),
+                NavigationButton(
+                    text: "Projects",
+                    index: 1,
+                    flexibleChildWidget: AboutMePage()),
+                NavigationButton(
+                    text: "GitHub",
+                    index: 2,
+                    flexibleChildWidget: AboutMePage()),
+                NavigationButton(
+                    text: "Experience",
+                    index: 3,
+                    flexibleChildWidget: AboutMePage()),
+                NavigationButton(
+                    text: "Blog", index: 4, flexibleChildWidget: AboutMePage()),
               ],
             ),
           ),
-          Expanded(
-              child: Flexible(
-                  child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(
-                width: 145 * 2,
-                height: 145 * 2,
-                margin: EdgeInsets.all(100.0),
-                decoration: BoxDecoration(
-                    color: primaryThemeColor, shape: BoxShape.circle),
-              ),
-              CircleAvatar(
-                backgroundImage: NetworkImage(
-                  'assets/Face.jpg',
-                ),
-                radius: 140,
-              ),
-              RotationTransition(
-                  turns: turnsTween.animate(_controller),
-                  child: ArcText(
-                      radius: 170,
-                      text:
-                          'Nathan Cheshire, advanced Java developer, Flutter developer, passionate about oerating systems, UI/UX, and visualizations.',
-                      textStyle: TextStyle(
-                          fontSize: 18, color: offWhite, fontFamily: "Lato"),
-                      startAngleAlignment: StartAngleAlignment.start,
-                      placement: Placement.outside,
-                      direction: Direction.clockwise)),
-            ],
-          )))
+          Expanded(child: Flexible(child: widget.flexibleChildWidget))
         ],
       ),
       bottomNavigationBar: BottomBar(),
@@ -133,10 +109,12 @@ class NavigationButton extends StatelessWidget {
     Key? key,
     required this.index,
     required this.text,
+    required this.flexibleChildWidget,
   }) : super(key: key);
 
   final String text;
   final int index;
+  final Widget flexibleChildWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -158,8 +136,13 @@ class NavigationButton extends StatelessWidget {
           }
 
           setCurrentIndex(this.index);
-          Navigator.push(context,
-              PortfoliPageRoute(widget: PortfolioPage(index: this.index)));
+          Navigator.push(
+              context,
+              PortfoliPageRoute(
+                  widget: PortfolioPage(
+                index: this.index,
+                flexibleChildWidget: flexibleChildWidget,
+              )));
         });
   }
 }

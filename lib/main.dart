@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/pages/about_me_page.dart';
 import 'package:portfolio/portfolio_page.dart';
 import 'package:portfolio/portfolio_numbers.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -12,9 +13,12 @@ class Portfolio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Nathan Cheshire',
-      debugShowCheckedModeBanner: false,
-      home: PortfolioPage(index: getCurrentIndex()),
-    );
+        title: 'Nathan Cheshire',
+        debugShowCheckedModeBanner: false,
+        home: PortfolioPage(
+          index: getCurrentIndex(),
+          flexibleChildWidget: AboutMePage(),
+        ),
+        theme: ThemeData(fontFamily: 'Prompt'));
   }
 }

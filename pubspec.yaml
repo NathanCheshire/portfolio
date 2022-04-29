@@ -30,3 +30,9 @@ flutter:
 
   assets:
     - assets/
+    - google_fonts/
+
+  fonts:
+    - family: Prompt
+      fonts:
+        - asset: google_fonts/Prompt.ttf
