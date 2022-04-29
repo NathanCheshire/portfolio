@@ -1,24 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/floating_buttons.dart';
+import 'package:portfolio/portfolio_numbers.dart';
 
+import 'bottom_bar.dart';
 import 'external_link_button.dart';
 import 'portfolio_colors.dart';
 import 'portfolio_page_route.dart';
 
 void main() {
   runApp(Portfolio());
-}
-
-int currentIndex = 0;
-
-setCurrentIndex(index) {
-  currentIndex = index;
-}
-
-getCurrentIndex() {
-  return currentIndex;
 }
 
 class Portfolio extends StatelessWidget {
@@ -38,12 +30,9 @@ class PortfolioPage extends StatefulWidget {
 }
 
 class _PortfolioPageState extends State<PortfolioPage> {
-  double floatingButtonSize = 40.0;
-  double bottomBarHeight = 60.0;
-
   @override
   Widget build(BuildContext context) {
-    var scaffold = Scaffold(
+    return Scaffold(
       backgroundColor: secondaryBackground,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: null,
@@ -87,46 +76,9 @@ class _PortfolioPageState extends State<PortfolioPage> {
           )
         ],
       ),
-      bottomNavigationBar: Container(
-        width: MediaQuery.of(context).size.width,
-        height: bottomBarHeight,
-        color: primaryBackground,
-      ),
-      floatingActionButton: Stack(
-        children: <Widget>[
-          Positioned(
-            right: floatingButtonSize * 2 + 20 * 3.5,
-            bottom: 0,
-            child: ExternalLinkButton(
-              icon: "Gmail.svg",
-              backgroundColor: secondaryBackground,
-              splashColor: primaryThemeColor,
-            ),
-          ),
-          Positioned(
-            right: 10,
-            bottom: 0,
-            child: ExternalLinkButton(
-              icon: "Discord.svg",
-              backgroundColor: secondaryBackground,
-              color: Colors.white,
-              splashColor: primaryThemeColor,
-            ),
-          ),
-          Positioned(
-            right: floatingButtonSize + 20 * 2,
-            bottom: 0,
-            child: ExternalLinkButton(
-              icon: "GitHub.svg",
-              color: Colors.white,
-              backgroundColor: secondaryBackground,
-              splashColor: primaryThemeColor,
-            ),
-          ),
-        ],
-      ),
+      bottomNavigationBar: BottomBar(),
+      floatingActionButton: FloatingButtons(),
     );
-    return scaffold;
   }
 }
 

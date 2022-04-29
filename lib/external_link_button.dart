@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:portfolio/portfolio_numbers.dart';
 
 class ExternalLinkButton extends StatelessWidget {
   final String icon;
   final Color? color;
   final Color? backgroundColor;
   final Color? splashColor;
+  final String? tooltip;
 
   const ExternalLinkButton({
     Key? key,
@@ -13,6 +15,7 @@ class ExternalLinkButton extends StatelessWidget {
     this.color,
     this.backgroundColor,
     this.splashColor,
+    this.tooltip,
   }) : super(key: key);
 
   @override
@@ -24,12 +27,13 @@ class ExternalLinkButton extends StatelessWidget {
       backgroundColor: backgroundColor,
       onPressed: () => {},
       child: SvgPicture.asset(
-        "assets" + "/" + icon,
-        height: 45.0,
-        width: 45.0,
+        "assets/" + icon,
+        height: floatingButtonSize,
+        width: floatingButtonSize,
         color: color,
         allowDrawingOutsideViewBox: true,
       ),
+      tooltip: tooltip,
     );
   }
 }
