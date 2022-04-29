@@ -3,10 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'PortfoliPageRoute.dart';
+import 'external_link_button.dart';
+import 'portfolio_colors.dart';
+import 'portfolio_page_route.dart';
 
 void main() {
   runApp(Portfolio());
+}
+
+int currentIndex = 0;
+
+setCurrentIndex(index) {
+  currentIndex = index;
+}
+
+getCurrentIndex() {
+  return currentIndex;
 }
 
 class Portfolio extends StatelessWidget {
@@ -15,9 +27,6 @@ class Portfolio extends StatelessWidget {
     return MaterialApp(
       title: 'Nathan Cheshire',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: PortfolioPage(),
     );
   }
@@ -32,17 +41,9 @@ class _PortfolioPageState extends State<PortfolioPage> {
   double floatingButtonSize = 40.0;
   double bottomBarHeight = 60.0;
 
-  Color primaryBackground = Color.fromARGB(255, 18, 20, 24);
-  Color secondaryBackground = Color.fromARGB(255, 27, 31, 36);
-
-  Color primaryThemeColor = Color.fromARGB(255, 0, 195, 154);
-
-  Color offWhite = Color.fromARGB(255, 245, 245, 245);
-  Color offBlack = Color.fromARGB(255, 15, 15, 15);
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    var scaffold = Scaffold(
       backgroundColor: secondaryBackground,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: null,
@@ -57,6 +58,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Center(
+                  // todo would be cool if this would ripple 3 letters to white and move along and wrap
                   child: Text("Nathan Cheshire",
                       textAlign: TextAlign.center,
                       style: GoogleFonts.bangers(
@@ -70,21 +72,19 @@ class _PortfolioPageState extends State<PortfolioPage> {
               ],
             ),
           ),
-          CupertinoButton(
-              child: Text("About me",
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.passionOne(
-                        textStyle: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: offWhite,
-                        ),
-                      )),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    PortfoliPageRoute(widget: SecondPage()));
-              })
+          Padding(
+            padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              children: [
+                NavigationButton(text: "About me", index: 0),
+                NavigationButton(text: "Projects", index: 1),
+                NavigationButton(text: "GitHub", index: 2),
+                NavigationButton(text: "Experience", index: 3),
+                NavigationButton(text: "Blog", index: 4),
+              ],
+            ),
+          )
         ],
       ),
       bottomNavigationBar: Container(
@@ -97,7 +97,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
           Positioned(
             right: floatingButtonSize * 2 + 20 * 3.5,
             bottom: 0,
-            child: FloatingButton(
+            child: ExternalLinkButton(
               icon: "Gmail.svg",
               backgroundColor: secondaryBackground,
               splashColor: primaryThemeColor,
@@ -106,7 +106,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
           Positioned(
             right: 10,
             bottom: 0,
-            child: FloatingButton(
+            child: ExternalLinkButton(
               icon: "Discord.svg",
               backgroundColor: secondaryBackground,
               color: Colors.white,
@@ -116,7 +116,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
           Positioned(
             right: floatingButtonSize + 20 * 2,
             bottom: 0,
-            child: FloatingButton(
+            child: ExternalLinkButton(
               icon: "GitHub.svg",
               color: Colors.white,
               backgroundColor: secondaryBackground,
@@ -126,6 +126,37 @@ class _PortfolioPageState extends State<PortfolioPage> {
         ],
       ),
     );
+    return scaffold;
+  }
+}
+
+class NavigationButton extends StatelessWidget {
+  const NavigationButton({
+    Key? key,
+    required this.index,
+    required this.text,
+  }) : super(key: key);
+
+  final String text;
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoButton(
+        child: Text(text,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.passionOne(
+              textStyle: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: this.index == getCurrentIndex()
+                    ? primaryThemeColor
+                    : offWhite,
+              ),
+            )),
+        onPressed: () {
+          Navigator.push(context, PortfoliPageRoute(widget: SecondPage()));
+        });
   }
 }
 
@@ -136,38 +167,6 @@ class SecondPage extends StatelessWidget {
       width: 200,
       height: 200,
       color: Colors.black,
-    );
-  }
-}
-
-class FloatingButton extends StatelessWidget {
-  final String icon;
-  final Color? color;
-  final Color? backgroundColor;
-  final Color? splashColor;
-
-  const FloatingButton({
-    Key? key,
-    required this.icon,
-    this.color,
-    this.backgroundColor,
-    this.splashColor,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton(
-      shape: BeveledRectangleBorder(borderRadius: BorderRadius.zero),
-      splashColor: splashColor,
-      backgroundColor: backgroundColor,
-      onPressed: () => {},
-      child: SvgPicture.asset(
-        "assets" + "/" + icon,
-        height: 45.0,
-        width: 45.0,
-        color: color,
-        allowDrawingOutsideViewBox: true,
-      ),
     );
   }
 }

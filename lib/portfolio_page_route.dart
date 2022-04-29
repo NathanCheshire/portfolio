@@ -5,7 +5,7 @@ class PortfoliPageRoute extends PageRouteBuilder {
 
   PortfoliPageRoute({required this.widget})
       : super(
-            transitionDuration: Duration(seconds: 2),
+            transitionDuration: Duration(milliseconds: 700),
             transitionsBuilder: (BuildContext context,
                 Animation<double> animation,
                 Animation<double> secAnimation,
