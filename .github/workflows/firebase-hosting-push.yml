@@ -11,6 +11,7 @@ jobs:
     steps:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
+        entryPoint: "."
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NATHAN_WEBSITE_7E4CC }}'
           projectId: nathan-website-7e4cc
