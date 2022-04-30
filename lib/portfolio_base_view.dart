@@ -7,7 +7,11 @@ import 'package:portfolio/constants/portfolio_colors.dart';
 import 'package:portfolio/constants/portfolio_numbers.dart';
 import 'package:portfolio/views/about_me_view.dart';
 import 'package:portfolio/views/blog_view.dart';
+import 'package:portfolio/views/education_view.dart';
+import 'package:portfolio/views/experience_view.dart';
+import 'package:portfolio/views/github_view.dart';
 import 'package:portfolio/views/home_view.dart';
+import 'package:portfolio/views/projects_view.dart';
 
 import 'bottom_bar.dart';
 import 'navigation_button.dart';
@@ -24,8 +28,7 @@ class PortfolioBaseView extends StatefulWidget {
   _PortfolioBaseViewState createState() => _PortfolioBaseViewState();
 }
 
-class _PortfolioBaseViewState extends State<PortfolioBaseView>
-    with TickerProviderStateMixin {
+class _PortfolioBaseViewState extends State<PortfolioBaseView> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, designSize: MediaQuery.of(context).size);
@@ -79,15 +82,21 @@ class _PortfolioBaseViewState extends State<PortfolioBaseView>
                 NavigationButton(
                     text: "Projects",
                     index: 2,
-                    flexibleChildWidget: Container()),
+                    flexibleChildWidget: ProjectsView()),
                 NavigationButton(
-                    text: "GitHub", index: 3, flexibleChildWidget: Container()),
+                    text: "GitHub",
+                    index: 3,
+                    flexibleChildWidget: GithubView()),
                 NavigationButton(
                     text: "Experience",
                     index: 4,
-                    flexibleChildWidget: Container()),
+                    flexibleChildWidget: ExperienceView()),
                 NavigationButton(
-                    text: "Blog", index: 5, flexibleChildWidget: BlogView()),
+                    text: "Education",
+                    index: 5,
+                    flexibleChildWidget: EducationView()),
+                NavigationButton(
+                    text: "Blog", index: 6, flexibleChildWidget: BlogView()),
               ],
             ),
           ),

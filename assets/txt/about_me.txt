@@ -1,2 +1,4 @@
-I'm flattered you want to know more about me :)
-I attended Mississippi State Unviersity for seven semesters, majoring in software engineering and mathematics. I finished my SE degree and began working in industry for Camgian. I have plans to return to school in the future to finish my mathematics major and possible pursue a masters or Ph.D. in Computer Science.
+Current
+Presently I am working in industry as a Software Engineering. At some point I hope to return to school to finish my mathematics major and possibly pursue a masters or Ph.D. in computer science.
+Before University
+Before choosing MSU as my college choice, I graduated from highschool after having been homschooled through all of grade school due to having ADHD and dyslexia. During my junior year, I decided to take my first and only AP course, AP computer science. This was my first real exposure to programming and software. I say "real" because around 2015 I tried to learn c++ but gave up quickly. Learning Java in AP computer science both gave me my extreme bias towards computer science and the desire to choose software enginereing as a career path.

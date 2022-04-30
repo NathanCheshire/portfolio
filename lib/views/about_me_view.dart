@@ -1,11 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/portfolio_colors.dart';
-import 'package:portfolio/objects/about_me.dart';
 
 class AboutMeView extends StatefulWidget {
   const AboutMeView({Key? key}) : super(key: key);
@@ -18,13 +15,18 @@ class _AboutMeViewState extends State<AboutMeView> {
   List<Widget> aboutMeWidgets = [];
 
   Future<void> readAboutMes() async {
-    final String response = await rootBundle.loadString("txt/about_me.txt");
+    String file = "txt/about_me.txt";
+    final String response = await rootBundle.loadString(file);
 
     List<String> parts = response.split("\n");
 
     List<Widget> widgetStack = [];
 
-    for (int i = 0; i < parts.length / 2; i += 2) {
+    if (parts.length % 2 != 0) {
+      throw new Exception("Error parsing contents of $file");
+    }
+
+    for (int i = 0; i < parts.length / 2; i++) {
       widgetStack.add(Text(parts[2 * i],
           textAlign: TextAlign.center,
           style: GoogleFonts.prompt(
@@ -43,7 +45,7 @@ class _AboutMeViewState extends State<AboutMeView> {
             textStyle: TextStyle(
               fontSize: 18.sp,
               fontWeight: FontWeight.w800,
-              color: offWhite,
+              color: secondaryTextColor,
             ),
           )));
       widgetStack.add(SizedBox(
@@ -70,7 +72,11 @@ class _AboutMeViewState extends State<AboutMeView> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: aboutMeWidgets,
             ))
-          : Container(width: 100, height: 100, color: primaryThemeColor)),
+          : Container()),
+
+      // todo if latency is an issue when this uses Mongo,
+      //make a shimmer loading effect like:
+      //https://www.youtube.com/watch?v=-SpAkwgPIHU&ab_channel=TheFlutterWay
     ));
   }
 }

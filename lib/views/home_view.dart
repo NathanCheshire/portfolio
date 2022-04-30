@@ -12,8 +12,7 @@ class HomeView extends StatefulWidget {
   _HomeViewState createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView>
-    with TickerProviderStateMixin {
+class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 15),
     vsync: this,
@@ -36,11 +35,12 @@ class _HomeViewState extends State<HomeView>
             width: (ABOUT_ME_CIRCLE_RADIUS * 2 + _borderLen),
             height: (ABOUT_ME_CIRCLE_RADIUS * 2 + _borderLen),
             decoration: BoxDecoration(
-              color: primaryThemeColor,
+                color: primaryThemeColor,
                 border: Border.all(
                   color: primaryThemeColor,
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(ABOUT_ME_CIRCLE_RADIUS))),
+                borderRadius:
+                    BorderRadius.all(Radius.circular(ABOUT_ME_CIRCLE_RADIUS))),
           ),
           CircleAvatar(
             backgroundImage: NetworkImage(
