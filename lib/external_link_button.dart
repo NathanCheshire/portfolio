@@ -10,6 +10,7 @@ class ExternalLinkButton extends StatelessWidget {
   final Color? splashColor;
   final String? tooltip;
   final String link;
+  final String hero;
 
   const ExternalLinkButton({
     Key? key,
@@ -19,6 +20,7 @@ class ExternalLinkButton extends StatelessWidget {
     this.backgroundColor,
     this.splashColor,
     this.tooltip,
+    required this.hero,
   }) : super(key: key);
 
   @override
@@ -26,6 +28,7 @@ class ExternalLinkButton extends StatelessWidget {
     return FloatingActionButton(
       shape: BeveledRectangleBorder(borderRadius: BorderRadius.zero),
       splashColor: splashColor,
+      heroTag: hero,
       focusColor: backgroundColor,
       backgroundColor: backgroundColor,
       onPressed: () => {openUrl(this.link)},

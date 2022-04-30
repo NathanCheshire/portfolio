@@ -24,6 +24,7 @@ class FloatingButtons extends StatelessWidget {
             splashColor: primaryThemeColor,
             tooltip: "My Email",
             link: personalEmailLink,
+            hero: "email",
           ),
         ),
         Positioned(
@@ -36,6 +37,7 @@ class FloatingButtons extends StatelessWidget {
             splashColor: primaryThemeColor,
             tooltip: "Natche#8845",
             link: discordLink,
+            hero: "discord",
           ),
         ),
         Positioned(
@@ -47,7 +49,8 @@ class FloatingButtons extends StatelessWidget {
             backgroundColor: secondaryBackground,
             splashColor: primaryThemeColor,
             tooltip: "My GitHub",
-            link: gitHubLink
+            link: gitHubLink,
+            hero: "github",
           ),
         ),
       ],

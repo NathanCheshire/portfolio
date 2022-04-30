@@ -32,6 +32,7 @@ flutter:
   assets:
     - assets/
     - google_fonts/
+    - assets/json/
 
   fonts:
     - family: Prompt
