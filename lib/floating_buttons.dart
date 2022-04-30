@@ -44,7 +44,7 @@ class FloatingButtons extends StatelessWidget {
           right: floatingButtonSize + 20 * 2,
           bottom: 0,
           child: ExternalLinkButton(
-            icon: "GitHub.svg",
+            icon: "Github.svg",
             color: Colors.white,
             backgroundColor: secondaryBackground,
             splashColor: primaryThemeColor,

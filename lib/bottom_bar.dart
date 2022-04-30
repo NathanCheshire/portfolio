@@ -25,7 +25,7 @@ class BottomBar extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
               child: IconButton(
                 icon: SvgPicture.asset(
-                  "assets/GitHub.svg",
+                  "assets/Github.svg",
                   height: floatingButtonSize,
                   width: floatingButtonSize,
                   color: Colors.white,
