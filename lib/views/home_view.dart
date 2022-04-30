@@ -44,7 +44,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
           ),
           CircleAvatar(
             backgroundImage: NetworkImage(
-              'assets/jpg/Face.jpg',
+              'assets/jpg/face.JPG',
             ),
             radius: ABOUT_ME_CIRCLE_RADIUS - _borderLen * 4,
           ),
