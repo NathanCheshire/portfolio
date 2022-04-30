@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/utils.dart';
 
 class EducationView extends StatefulWidget {
   const EducationView({Key? key}) : super(key: key);
@@ -9,8 +8,8 @@ class EducationView extends StatefulWidget {
 }
 
 class _EducationViewState extends State<EducationView> {
-  double degreeWidth = 7015;
-  double degreeHeight = 5100;
+  double degreeWidth = 3500;
+  double degreeHeight = 2545;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,7 @@ class _EducationViewState extends State<EducationView> {
       width: degreeHeight,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: getSeDegreeImage(),
+          image: AssetImage("assets/jpg/se_diploma.jpg"),
           fit: widthDominantDimension ? BoxFit.fitHeight : BoxFit.fitWidth,
         ),
         shape: BoxShape.rectangle,

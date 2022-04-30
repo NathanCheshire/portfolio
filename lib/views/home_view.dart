@@ -4,7 +4,6 @@ import 'package:portfolio/constants/portfolio_colors.dart';
 import 'package:portfolio/constants/portfolio_strings.dart';
 
 import '../constants/portfolio_numbers.dart';
-import '../utils.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -25,18 +24,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   );
 
   int _borderLen = 3;
-
-  @override
-  void initState() {
-    setSeDegreeImage(AssetImage('assets/jpg/se_diploma.jpg'));
-    super.initState();
-  }
-
-  @override
-  void didChangeDependencies() {
-    precacheImage(AssetImage('assets/jpg/se_diploma.jpg'), context);
-    super.didChangeDependencies();
-  }
 
   @override
   Widget build(BuildContext context) {
