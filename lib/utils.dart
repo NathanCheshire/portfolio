@@ -1,8 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:portfolio/constants/portfolio_strings.dart';
+import 'package:portfolio/entities/github/repo.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'entities/repo.dart';
 
 openUrl(url) async {
   if (await canLaunchUrl(url)) {
