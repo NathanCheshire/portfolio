@@ -1,9 +1,9 @@
 const String circleTextDescription =
-    'Nathan Cheshire, advanced Java developer, Flutter developer, passionate about UI/UX, and visualizations.';
+    'Nate Cheshire, advanced Java developer, Flutter developer, passionate about UI/UX, and visualizations.';
 
 const String defaultFontFamily = "Prompt";
 
-const String webAppTitle = "Nathan Cheshire";
+const String webAppTitle = "Nate Cheshire";
 
 const String webAppSourceLink = "https://github.com/NathanCheshire/portfolio";
 

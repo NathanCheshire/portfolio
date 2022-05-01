@@ -27,14 +27,14 @@ class _EducationViewState extends State<EducationView> {
     double? degreeUseWidth;
 
     double horizontalPadding = 10.0;
-    double verticalPadding = 10.0;
 
     if (widthDominantDimension) {
       degreeUseHeight = allocatedHeight / 1.5;
       degreeUseWidth = degreeUseHeight * degreeWidth / degreeHeight;
     } else {
-      degreeUseWidth = size.width - horizontalPadding * 2;
-      degreeUseHeight = size.height * degreeHeight / degreeWidth;
+      degreeUseWidth = size.width;
+      degreeUseHeight = degreeUseWidth * degreeHeight / degreeWidth;
+      degreeUseWidth -= horizontalPadding * 2;
     }
 
     return SingleChildScrollView(
@@ -55,17 +55,49 @@ class _EducationViewState extends State<EducationView> {
               )),
         ),
         Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Container(
-            width: degreeUseWidth,
-            height: degreeUseHeight,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/jpg/se_diploma.jpg"),
-              ),
-            ),
-          ),
+          padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 30.0),
+          child: Text("Status: complted fall, 2021",
+              textAlign: TextAlign.center,
+              style: GoogleFonts.poppins(
+                textStyle: TextStyle(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.bold,
+                  color: offWhite,
+                ),
+              )),
         ),
+        Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  width: degreeUseWidth,
+                  height: degreeUseHeight,
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 45, 45, 45),
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                ),
+                Text("Loading...",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.bold,
+                        color: offWhite,
+                      ),
+                    )),
+                Container(
+                  width: degreeUseWidth,
+                  height: degreeUseHeight,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/jpg/se_diploma.jpg"),
+                    ),
+                  ),
+                ),
+              ],
+            )),
         Padding(
           padding: const EdgeInsets.only(
               top: 20.0, left: 10.0, right: 10.0, bottom: 20.0),
@@ -81,7 +113,7 @@ class _EducationViewState extends State<EducationView> {
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 30.0),
-          child: Text("Credit hours remaining: 26",
+          child: Text("Status: credit hours remaining: 26",
               textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
                 textStyle: TextStyle(

@@ -43,7 +43,7 @@ class _PrimaryPortfolioViewState extends State<PrimaryPortfolioView>
               children: [
                 Flexible(
                   child: Center(
-                    child: Text("Nathan Cheshire",
+                    child: Text("Nate Cheshire",
                         textAlign: TextAlign.center,
                         style: GoogleFonts.bangers(
                           textStyle: TextStyle(
