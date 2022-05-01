@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/portfolio_strings.dart';
 import 'package:portfolio/portfolio_base_view.dart';
-import 'package:portfolio/constants/portfolio_numbers.dart';
 import 'package:portfolio/views/home_view.dart';
 import 'package:url_strategy/url_strategy.dart';
 
@@ -17,7 +16,7 @@ class Portfolio extends StatelessWidget {
         title: webAppTitle,
         debugShowCheckedModeBanner: false,
         home: PortfolioBaseView(
-          index: getCurrentIndex(),
+          index: 0,
           flexibleChildWidget: HomeView(),
         ),
         theme: ThemeData(fontFamily: defaultFontFamily));

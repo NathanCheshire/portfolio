@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:portfolio/constants/portfolio_numbers.dart';
 import 'package:portfolio/utils.dart';
 
 class ExternalLinkButton extends StatelessWidget {
@@ -34,8 +33,8 @@ class ExternalLinkButton extends StatelessWidget {
       onPressed: () => {openUrl(this.link)},
       child: SvgPicture.asset(
         "assets/" + icon,
-        height: floatingButtonSize,
-        width: floatingButtonSize,
+        height: 45,
+        width: 45,
         color: color,
         allowDrawingOutsideViewBox: true,
       ),

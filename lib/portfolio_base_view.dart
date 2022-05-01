@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/floating_buttons.dart';
 
 import 'package:portfolio/constants/portfolio_colors.dart';
 import 'package:portfolio/constants/portfolio_numbers.dart';
@@ -35,21 +34,19 @@ class _PortfolioBaseViewState extends State<PortfolioBaseView> {
 
     return Scaffold(
       backgroundColor: secondaryBackground,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: null,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Container(
             width: MediaQuery.of(context).size.width,
-            height: bottomBarHeight,
+            height: topBarHeight,
             color: primaryBackground,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Flexible(
                   child: Center(
-                    // todo would be cool if this would ripple 3 letters to white and move along and wrap
                     child: Text("Nathan Cheshire",
                         textAlign: TextAlign.center,
                         style: GoogleFonts.bangers(
@@ -64,47 +61,58 @@ class _PortfolioBaseViewState extends State<PortfolioBaseView> {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
-            child: Wrap(
-              alignment: WrapAlignment.center,
-              children: [
-                NavigationButton(
-                  text: "Home",
-                  index: 0,
-                  flexibleChildWidget: HomeView(),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: navigationBarHeight,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+              child: Center(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      NavigationButton(
+                        text: "Home",
+                        index: 0,
+                        flexibleChildWidget: HomeView(),
+                      ),
+                      NavigationButton(
+                        text: "About me",
+                        index: 1,
+                        flexibleChildWidget: AboutMeView(),
+                      ),
+                      NavigationButton(
+                          text: "Projects",
+                          index: 2,
+                          flexibleChildWidget: ProjectsView()),
+                      NavigationButton(
+                          text: "GitHub",
+                          index: 3,
+                          flexibleChildWidget: GithubView()),
+                      NavigationButton(
+                          text: "Experience",
+                          index: 4,
+                          flexibleChildWidget: ExperienceView()),
+                      NavigationButton(
+                          text: "Education",
+                          index: 5,
+                          flexibleChildWidget: EducationView()),
+                      NavigationButton(
+                          text: "Blog",
+                          index: 6,
+                          flexibleChildWidget: BlogView()),
+                    ],
+                  ),
                 ),
-                NavigationButton(
-                  text: "About me",
-                  index: 1,
-                  flexibleChildWidget: AboutMeView(),
-                ),
-                NavigationButton(
-                    text: "Projects",
-                    index: 2,
-                    flexibleChildWidget: ProjectsView()),
-                NavigationButton(
-                    text: "GitHub",
-                    index: 3,
-                    flexibleChildWidget: GithubView()),
-                NavigationButton(
-                    text: "Experience",
-                    index: 4,
-                    flexibleChildWidget: ExperienceView()),
-                NavigationButton(
-                    text: "Education",
-                    index: 5,
-                    flexibleChildWidget: EducationView()),
-                NavigationButton(
-                    text: "Blog", index: 6, flexibleChildWidget: BlogView()),
-              ],
+              ),
             ),
           ),
-          Expanded(child: Flexible(child: widget.flexibleChildWidget))
+          Expanded(child: Flexible(child: widget.flexibleChildWidget)),
         ],
       ),
       bottomNavigationBar: BottomBar(),
-      floatingActionButton: FloatingButtons(),
     );
   }
 }
