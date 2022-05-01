@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/portfolio_colors.dart';
 import 'package:portfolio/constants/portfolio_numbers.dart';
+import 'package:portfolio/constants/portfolio_strings.dart';
 
 class EducationView extends StatefulWidget {
   const EducationView({Key? key}) : super(key: key);
@@ -56,7 +57,7 @@ class _EducationViewState extends State<EducationView> {
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 30.0),
-          child: Text("Status: complted fall, 2021",
+          child: Text("Status: completed fall, 2021",
               textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
                 textStyle: TextStyle(
@@ -66,38 +67,8 @@ class _EducationViewState extends State<EducationView> {
                 ),
               )),
         ),
-        Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Container(
-                  width: degreeUseWidth,
-                  height: degreeUseHeight,
-                  decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 45, 45, 45),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                ),
-                Text("Loading...",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
-                        color: offWhite,
-                      ),
-                    )),
-                Container(
-                  width: degreeUseWidth,
-                  height: degreeUseHeight,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/jpg/se_diploma.jpg"),
-                    ),
-                  ),
-                ),
-              ],
-            )),
+        DegreeWidget(
+            degreeUseWidth: degreeUseWidth, degreeUseHeight: degreeUseHeight),
         Padding(
           padding: const EdgeInsets.only(
               top: 20.0, left: 10.0, right: 10.0, bottom: 20.0),
@@ -123,39 +94,55 @@ class _EducationViewState extends State<EducationView> {
                 ),
               )),
         ),
-        Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Container(
-                  width: degreeUseWidth,
-                  height: degreeUseHeight,
-                  decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 45, 45, 45),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                ),
-                Text("Loading...",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
-                        color: offWhite,
-                      ),
-                    )),
-                Container(
-                  width: degreeUseWidth,
-                  height: degreeUseHeight,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/jpg/se_diploma.jpg"),
-                    ),
-                  ),
-                ),
-              ],
-            )),
+        DegreeWidget(
+            degreeUseWidth: degreeUseWidth, degreeUseHeight: degreeUseHeight),
       ],
     ));
+  }
+}
+
+class DegreeWidget extends StatelessWidget {
+  const DegreeWidget({
+    Key? key,
+    required this.degreeUseWidth,
+    required this.degreeUseHeight,
+  }) : super(key: key);
+
+  final double? degreeUseWidth;
+  final double? degreeUseHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Container(
+              width: degreeUseWidth,
+              height: degreeUseHeight,
+              decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 45, 45, 45),
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+            ),
+            Text("Loading...",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                    color: offWhite,
+                  ),
+                )),
+            Container(
+                width: degreeUseWidth,
+                height: degreeUseHeight,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(degreeLink),
+                  ),
+                )),
+          ],
+        ));
   }
 }

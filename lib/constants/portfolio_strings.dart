@@ -14,4 +14,4 @@ const String homeCircleTextPersonalDescription =
 final String githubReposLink =
       'https://api.github.com/users/nathancheshire/repos';
 
-final String degreeLink = '';
+final String degreeLink = 'https://raw.githubusercontent.com/NathanCheshire/portfolio/main/assets/jpg/se_diploma.jpg';
