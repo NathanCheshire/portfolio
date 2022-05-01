@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:portfolio/constants/portfolio_strings.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -37,13 +35,8 @@ Future<List<Repo>> getRepos() async {
     print(response.data);
 
     List<Repo> repos;
-    // repos = (json.decode(response.data) as List)
-    //     .map((i) => Repo.fromJson(i))
-    //     .toList();
-
-    // print("size: ");
-    // print(repos.length);
-    return []; // todo repos
+    repos = (response.data as List).map((nate) => Repo.fromJson(nate)).toList();
+    return repos;
   } else {
     return []; // todo check for no objects in ret and show error widget
   }

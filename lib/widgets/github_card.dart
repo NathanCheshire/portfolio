@@ -13,7 +13,8 @@ class GithubCard extends StatelessWidget {
       required this.repoName,
       required this.repoDescription,
       required this.repoLanguage,
-      required this.repoUpdateTime})
+      required this.repoUpdateTime,
+      required this.repoLink})
       : super(key: key);
 
   final double cardWidth;
@@ -24,6 +25,7 @@ class GithubCard extends StatelessWidget {
   final String repoDescription;
   final String repoLanguage;
   final String repoUpdateTime;
+  final String repoLink;
 
   @override
   Widget build(BuildContext context) {
