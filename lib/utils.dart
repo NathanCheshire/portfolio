@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:portfolio/constants/portfolio_strings.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'entities/repo.dart';
@@ -25,18 +26,25 @@ githubTimeToPrettyTime(String githubTime) {
   }
 }
 
+final client = Dio();
+
 Future<List<Repo>> getRepos() async {
-  var response = await Dio().get('http://www.example.com');
+  var response = await client.get(githubReposLink);
 
   if (response.statusCode == 200) {
-    List<Repo> repos;
-    repos = (json.decode(response.data) as List)
-        .map((i) => Repo.fromJson(i))
-        .toList();
+    print('success');
+    print(response.statusMessage);
+    print(response.data);
 
-    print(repos.length);
-    return repos;
+    List<Repo> repos;
+    // repos = (json.decode(response.data) as List)
+    //     .map((i) => Repo.fromJson(i))
+    //     .toList();
+
+    // print("size: ");
+    // print(repos.length);
+    return []; // todo repos
   } else {
-    return [];
+    return []; // todo check for no objects in ret and show error widget
   }
 }
