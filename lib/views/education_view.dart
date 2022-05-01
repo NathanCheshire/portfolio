@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/portfolio_colors.dart';
+import 'package:portfolio/constants/portfolio_numbers.dart';
 
 class EducationView extends StatefulWidget {
   const EducationView({Key? key}) : super(key: key);
@@ -19,7 +20,24 @@ class _EducationViewState extends State<EducationView> {
     Size size = MediaQuery.of(context).size;
     bool widthDominantDimension = size.width > size.height;
 
-    return Expanded(
+    double allocatedHeight =
+        size.height - topBarHeight - bottomBarHeight - navigationBarHeight;
+
+    double? degreeUseHeight;
+    double? degreeUseWidth;
+
+    double horizontalPadding = 10.0;
+    double verticalPadding = 10.0;
+
+    if (widthDominantDimension) {
+      degreeUseHeight = allocatedHeight / 1.5;
+      degreeUseWidth = degreeUseHeight * degreeWidth / degreeHeight;
+    } else {
+      degreeUseWidth = size.width - horizontalPadding * 2;
+      degreeUseHeight = size.height * degreeHeight / degreeWidth;
+    }
+
+    return SingleChildScrollView(
         child: Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -36,15 +54,15 @@ class _EducationViewState extends State<EducationView> {
                 ),
               )),
         ),
-        Expanded(
+        Padding(
+          padding: const EdgeInsets.all(10.0),
           child: Container(
+            width: degreeUseWidth,
+            height: degreeUseHeight,
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/jpg/se_diploma.jpg"),
-                  fit: widthDominantDimension
-                      ? BoxFit.fitHeight
-                      : BoxFit.fitWidth),
-              shape: BoxShape.rectangle,
+                image: AssetImage("assets/jpg/se_diploma.jpg"),
+              ),
             ),
           ),
         ),
@@ -73,15 +91,15 @@ class _EducationViewState extends State<EducationView> {
                 ),
               )),
         ),
-        Expanded(
+        Padding(
+          padding: const EdgeInsets.all(10.0),
           child: Container(
+            width: degreeUseWidth,
+            height: degreeUseHeight,
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/jpg/se_diploma.jpg"),
-                  fit: widthDominantDimension
-                      ? BoxFit.fitHeight
-                      : BoxFit.fitWidth),
-              shape: BoxShape.rectangle,
+                image: AssetImage("assets/jpg/se_diploma.jpg"),
+              ),
             ),
           ),
         ),

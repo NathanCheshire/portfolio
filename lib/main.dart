@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/portfolio_colors.dart';
 import 'package:portfolio/constants/portfolio_strings.dart';
 import 'package:portfolio/portfolio_base_view.dart';
 import 'package:portfolio/views/home_view.dart';
@@ -19,6 +20,10 @@ class Portfolio extends StatelessWidget {
           index: 0,
           flexibleChildWidget: HomeView(),
         ),
-        theme: ThemeData(fontFamily: defaultFontFamily));
+        theme: ThemeData(
+            fontFamily: defaultFontFamily,
+            scrollbarTheme: ScrollbarThemeData().copyWith(
+              thumbColor: MaterialStateProperty.all(scrollbarColor),
+            )));
   }
 }

@@ -62,6 +62,8 @@ class _PortfolioBaseViewState extends State<PortfolioBaseView> {
             ),
           ),
           Container(
+            // todo a small dot indicator would be cool to
+            // let users know they have more pages
             width: MediaQuery.of(context).size.width,
             height: navigationBarHeight,
             child: Padding(

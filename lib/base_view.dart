@@ -30,7 +30,6 @@ class _PrimaryPortfolioViewState extends State<PrimaryPortfolioView>
 
     return Scaffold(
       backgroundColor: secondaryBackground,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: null,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -44,7 +43,6 @@ class _PrimaryPortfolioViewState extends State<PrimaryPortfolioView>
               children: [
                 Flexible(
                   child: Center(
-                    // todo would be cool if this would ripple 3 letters to white and move along and wrap
                     child: Text("Nathan Cheshire",
                         textAlign: TextAlign.center,
                         style: GoogleFonts.bangers(
