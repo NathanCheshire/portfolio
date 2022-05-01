@@ -15,7 +15,7 @@ class _AboutMeViewState extends State<AboutMeView> {
   List<Widget> aboutMeWidgets = [];
 
   Future<void> readAboutMes() async {
-    String file = "txt/about_me.txt";
+    String file = "assets/txt/about_me.txt";
     final String response = await rootBundle.loadString(file);
 
     List<String> parts = response.split("\n");
@@ -61,7 +61,6 @@ class _AboutMeViewState extends State<AboutMeView> {
   @override
   Widget build(BuildContext context) {
     readAboutMes();
-    print("called read about mes");
 
     return SingleChildScrollView(
         child: Padding(

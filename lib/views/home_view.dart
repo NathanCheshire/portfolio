@@ -52,7 +52,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
               turns: turnsTween.animate(_controller),
               child: ArcText(
                   radius: ABOUT_ME_CIRCLE_RADIUS + _borderLen * 2,
-                  text: circleTextDescription,
+                  text: homeCircleTextPersonalDescription,
                   textStyle: TextStyle(
                       fontSize: 18,
                       color: offWhite,

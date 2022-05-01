@@ -124,17 +124,37 @@ class _EducationViewState extends State<EducationView> {
               )),
         ),
         Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Container(
-            width: degreeUseWidth,
-            height: degreeUseHeight,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/jpg/se_diploma.jpg"),
-              ),
-            ),
-          ),
-        ),
+            padding: const EdgeInsets.all(10.0),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  width: degreeUseWidth,
+                  height: degreeUseHeight,
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 45, 45, 45),
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                ),
+                Text("Loading...",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.bold,
+                        color: offWhite,
+                      ),
+                    )),
+                Container(
+                  width: degreeUseWidth,
+                  height: degreeUseHeight,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/jpg/se_diploma.jpg"),
+                    ),
+                  ),
+                ),
+              ],
+            )),
       ],
     ));
   }

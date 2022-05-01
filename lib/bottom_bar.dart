@@ -97,7 +97,7 @@ class BottomBar extends StatelessWidget {
                         overflow: TextOverflow.fade,
                         style: GoogleFonts.teko(
                           textStyle: TextStyle(
-                            fontSize: 20.sp,
+                            fontSize: 18.sp,
                             fontWeight: FontWeight.bold,
                             color: primaryThemeColor,
                           ),
