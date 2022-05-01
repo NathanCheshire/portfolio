@@ -43,6 +43,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                     BorderRadius.all(Radius.circular(ABOUT_ME_CIRCLE_RADIUS))),
           ),
           CircleAvatar(
+            backgroundColor: primaryThemeColor,
             backgroundImage: NetworkImage(
               'assets/jpg/face.JPG',
             ),

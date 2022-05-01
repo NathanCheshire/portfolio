@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../utils.dart';
 
-class GithubCard extends StatefulWidget {
+class GithubCard extends StatelessWidget {
   const GithubCard(
       {Key? key,
       required this.cardWidth,
@@ -26,11 +26,7 @@ class GithubCard extends StatefulWidget {
   final String repoLanguage;
   final String repoUpdateTime;
   final String repoLink;
-  @override
-  State<GithubCard> createState() => _GithubCardState();
-}
 
-class _GithubCardState extends State<GithubCard> {
   @override
   Widget build(BuildContext context) {
     final Color splashColor = Color.fromARGB(255, 185, 185, 185);
@@ -42,8 +38,8 @@ class _GithubCardState extends State<GithubCard> {
       child: Stack(
         children: [
           Container(
-            width: widget.cardWidth,
-            height: widget.cardHeight,
+            width: cardWidth,
+            height: cardHeight,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(borderRadius))),
             child: Padding(
@@ -52,10 +48,10 @@ class _GithubCardState extends State<GithubCard> {
                   child: Material(
                     borderRadius:
                         BorderRadius.all(Radius.circular(borderRadius)),
-                    color: widget.cardColor,
+                    color: cardColor,
                     child: InkWell(
                       onTap: () {
-                        openUrl(widget.repoLink);
+                        openUrl(repoLink);
                       },
                       borderRadius:
                           BorderRadius.all(Radius.circular(borderRadius)),
@@ -68,13 +64,13 @@ class _GithubCardState extends State<GithubCard> {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(
                                   5.0, 10.0, 5.0, 10.0),
-                              child: Text(widget.repoName,
+                              child: Text(repoName,
                                   textAlign: TextAlign.center,
                                   style: GoogleFonts.prompt(
                                     textStyle: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w800,
-                                      color: widget.cardTextColor,
+                                      color: cardTextColor,
                                     ),
                                   )),
                             ),
@@ -82,13 +78,13 @@ class _GithubCardState extends State<GithubCard> {
                                 child: SingleChildScrollView(
                               child: Padding(
                                 padding: const EdgeInsets.all(5.0),
-                                child: Text(widget.repoDescription,
+                                child: Text(repoDescription,
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.prompt(
                                       textStyle: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w800,
-                                        color: widget.cardTextColor,
+                                        color: cardTextColor,
                                       ),
                                     )),
                               ),
@@ -101,24 +97,22 @@ class _GithubCardState extends State<GithubCard> {
                                       MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Text("Language: " + widget.repoLanguage,
+                                    Text("Language: " + repoLanguage,
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.prompt(
                                           textStyle: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.w800,
-                                            color: widget.cardTextColor,
+                                            color: cardTextColor,
                                           ),
                                         )),
-                                    Text(
-                                        githubTimeToPrettyTime(
-                                            widget.repoUpdateTime),
+                                    Text(githubTimeToPrettyTime(repoUpdateTime),
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.prompt(
                                           textStyle: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.w800,
-                                            color: widget.cardTextColor,
+                                            color: cardTextColor,
                                           ),
                                         )),
                                   ],
