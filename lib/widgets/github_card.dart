@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../utils.dart';
@@ -25,77 +25,95 @@ class GithubCard extends StatelessWidget {
   final String repoDescription;
   final String repoLanguage;
   final String repoUpdateTime;
-  final String repoLink;
+  final String repoLink; // todo use me and need to test this page still
+
+  final Color splashColor = Color.fromARGB(255, 65, 75, 87);
+  final Color highlightColor = Color.fromARGB(255, 65, 75, 87);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
-      child: Container(
-        width: cardWidth,
-        height: cardHeight,
-        decoration: BoxDecoration(
-            color: cardColor,
-            borderRadius: BorderRadius.all(Radius.circular(20))),
-        child: Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Expanded(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(repoName,
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.prompt(
-                          textStyle: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w800,
-                            color: cardTextColor,
-                          ),
-                        )),
-                    Flexible(
-                        child: SingleChildScrollView(
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Text(repoDescription,
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.prompt(
-                              textStyle: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w800,
-                                color: cardTextColor,
-                              ),
-                            )),
-                      ),
-                    )),
-                    Padding(
-                        padding: const EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 5.0),
-                        child: Row(
+      child: Stack(
+        children: [
+          Container(
+            width: cardWidth,
+            height: cardHeight,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+            child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Expanded(
+                  child: Material(
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    color: cardColor,
+                    child: InkWell(
+                      onTap: () => {},
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      splashColor: splashColor,
+                      highlightColor: highlightColor,
+                      child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text("Language: " + repoLanguage,
+                            Text(repoName,
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.prompt(
                                   textStyle: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 22,
                                     fontWeight: FontWeight.w800,
                                     color: cardTextColor,
                                   ),
                                 )),
-                            Text(githubTimeToPrettyTime(repoUpdateTime),
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.prompt(
-                                  textStyle: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w800,
-                                    color: cardTextColor,
-                                  ),
+                            Flexible(
+                                child: SingleChildScrollView(
+                              child: Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Text(repoDescription,
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.prompt(
+                                      textStyle: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w800,
+                                        color: cardTextColor,
+                                      ),
+                                    )),
+                              ),
+                            )),
+                            Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                    5.0, 10.0, 5.0, 5.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text("Language: " + repoLanguage,
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.prompt(
+                                          textStyle: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w800,
+                                            color: cardTextColor,
+                                          ),
+                                        )),
+                                    Text(githubTimeToPrettyTime(repoUpdateTime),
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.prompt(
+                                          textStyle: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w800,
+                                            color: cardTextColor,
+                                          ),
+                                        )),
+                                  ],
                                 )),
-                          ],
-                        )),
-                  ]),
-            )),
+                          ]),
+                    ),
+                  ),
+                )),
+          ),
+        ],
       ),
     );
   }
