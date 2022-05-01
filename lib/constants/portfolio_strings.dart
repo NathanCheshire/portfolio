@@ -10,3 +10,6 @@ const String discordLink = "https://discord.com/app";
 
 const String homeCircleTextPersonalDescription =
     'Nate Cheshire, advanced Java developer, Flutter developer, passionate about UI/UX, and visualizations.';
+
+final String githubReposLink =
+      'https://api.github.com/users/nathancheshire/repos';
