@@ -12,6 +12,4 @@ const String homeCircleTextPersonalDescription =
     'Nate Cheshire, advanced Java developer, Flutter developer, passionate about UI/UX, and visualizations.';
 
 final String githubReposLink =
-      'https://api.github.com/users/nathancheshire/repos';
-
-final String degreeLink = 'https://raw.githubusercontent.com/NathanCheshire/portfolio/main/assets/jpg/se_diploma.jpg';
+    'https://api.github.com/users/nathancheshire/repos';

@@ -14,7 +14,7 @@ class AboutMeView extends StatefulWidget {
 class _AboutMeViewState extends State<AboutMeView> {
   List<Widget> aboutMeWidgets = [];
 
-  Future<void> readAboutMes() async {
+  Future<void> initAboutMes() async {
     String file = "assets/txt/about_me.txt";
     final String response = await rootBundle.loadString(file);
 
@@ -53,6 +53,73 @@ class _AboutMeViewState extends State<AboutMeView> {
       ));
     }
 
+    widgetStack.add(SizedBox(
+      height: 60,
+    ));
+
+    widgetStack.add(Text("Recently Played Spotify Tracks",
+        textAlign: TextAlign.center,
+        style: GoogleFonts.prompt(
+          textStyle: TextStyle(
+            fontSize: 22.sp,
+            fontWeight: FontWeight.bold,
+            color: offWhite,
+          ),
+        )));
+
+    widgetStack.add(SizedBox(
+      height: 20,
+    ));
+
+    widgetStack.add(Wrap(
+      alignment: WrapAlignment.center,
+      spacing: 25,
+      runSpacing: 25,
+      direction: Axis.horizontal,
+      children: [
+        Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage("assets/jpg/music_placeholder.jpg"),
+              ),
+            )),
+        Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage("assets/jpg/music_placeholder.jpg"),
+              ),
+            )),
+        Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage("assets/jpg/music_placeholder.jpg"),
+              ),
+            )),
+        Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage("assets/jpg/music_placeholder.jpg"),
+              ),
+            )),
+        Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage("assets/jpg/music_placeholder.jpg"),
+              ),
+            )),
+      ],
+    ));
+
     setState(() {
       aboutMeWidgets = widgetStack;
     });
@@ -60,7 +127,7 @@ class _AboutMeViewState extends State<AboutMeView> {
 
   @override
   Widget build(BuildContext context) {
-    readAboutMes();
+    initAboutMes();
 
     return SingleChildScrollView(
         child: Padding(
@@ -72,10 +139,6 @@ class _AboutMeViewState extends State<AboutMeView> {
               children: aboutMeWidgets,
             ))
           : Container()),
-
-      // todo if latency is an issue when this uses Mongo,
-      //make a shimmer loading effect like:
-      //https://www.youtube.com/watch?v=-SpAkwgPIHU&ab_channel=TheFlutterWay
     ));
   }
 }
