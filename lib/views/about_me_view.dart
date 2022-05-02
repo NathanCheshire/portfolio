@@ -77,46 +77,36 @@ class _AboutMeViewState extends State<AboutMeView> {
       runSpacing: 25,
       direction: Axis.horizontal,
       children: [
-        Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage("assets/jpg/music_placeholder.jpg"),
-              ),
-            )),
-        Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage("assets/jpg/music_placeholder.jpg"),
-              ),
-            )),
-        Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage("assets/jpg/music_placeholder.jpg"),
-              ),
-            )),
-        Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage("assets/jpg/music_placeholder.jpg"),
-              ),
-            )),
-        Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage("assets/jpg/music_placeholder.jpg"),
-              ),
-            )),
+        SpotifySong(
+          width: 100,
+          height: 100,
+          imagePath: "assets/jpg/music_placeholder.jpg",
+          title: "Be Kind (with Halsey)",
+        ),
+        SpotifySong(
+          width: 100,
+          height: 100,
+          imagePath: "assets/jpg/music_placeholder.jpg",
+          title: "Be Kind (with Halsey)",
+        ),
+        SpotifySong(
+          width: 100,
+          height: 100,
+          imagePath: "assets/jpg/music_placeholder.jpg",
+          title: "Be Kind (with Halsey)",
+        ),
+        SpotifySong(
+          width: 100,
+          height: 100,
+          imagePath: "assets/jpg/music_placeholder.jpg",
+          title: "Be Kind (with Halsey)",
+        ),
+        SpotifySong(
+          width: 100,
+          height: 100,
+          imagePath: "assets/jpg/music_placeholder.jpg",
+          title: "Be Kind (with Halsey)",
+        ),
       ],
     ));
 
@@ -140,5 +130,55 @@ class _AboutMeViewState extends State<AboutMeView> {
             ))
           : Container()),
     ));
+  }
+}
+
+class SpotifySong extends StatelessWidget {
+  const SpotifySong({
+    Key? key,
+    required this.width,
+    required this.height,
+    required this.imagePath,
+    required this.title,
+  }) : super(key: key);
+
+  final double width;
+  final double height;
+  final String imagePath;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 200,
+      height: 200,
+      child: Expanded(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+              width: width,
+              height: height,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(imagePath),
+                ),
+              )),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
+            child: Text(title,
+                textAlign: TextAlign.center,
+                style: GoogleFonts.prompt(
+                  textStyle: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                    color: offWhite,
+                  ),
+                )),
+          )
+        ],
+      )),
+    );
   }
 }

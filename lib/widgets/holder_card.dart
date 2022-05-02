@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/utils.dart';
 
-class HolderCard extends StatefulWidget {
-  const HolderCard(
+class HolderCard extends StatelessWidget {
+   const HolderCard(
       {Key? key,
       required this.cardWidth,
       required this.cardHeight,
@@ -15,11 +15,7 @@ class HolderCard extends StatefulWidget {
   final double cardHeight;
   final Color cardColor;
   final Color cardSubContainerColor;
-  @override
-  State<HolderCard> createState() => _HolderCardState();
-}
 
-class _HolderCardState extends State<HolderCard> {
   @override
   Widget build(BuildContext context) {
     const double borderRadius = 20.0;
@@ -29,10 +25,10 @@ class _HolderCardState extends State<HolderCard> {
       child: Stack(
         children: [
           Container(
-            width: widget.cardWidth,
-            height: widget.cardHeight,
+            width: cardWidth,
+            height: cardHeight,
             decoration: BoxDecoration(
-              color: widget.cardColor,
+              color: cardColor,
               borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
             ),
             child: Padding(
@@ -51,7 +47,7 @@ class _HolderCardState extends State<HolderCard> {
                             decoration: BoxDecoration(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10.0)),
-                                color: widget.cardSubContainerColor),
+                                color: cardSubContainerColor),
                           ),
                         ),
                         FittedBox(
@@ -69,7 +65,7 @@ class _HolderCardState extends State<HolderCard> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(10.0)),
-                                      color: widget.cardSubContainerColor),
+                                      color: cardSubContainerColor),
                                 ),
                                 Container(
                                   width: 100,
@@ -77,7 +73,7 @@ class _HolderCardState extends State<HolderCard> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(10.0)),
-                                      color: widget.cardSubContainerColor),
+                                      color: cardSubContainerColor),
                                 ),
                               ],
                             )),
