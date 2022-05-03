@@ -57,6 +57,31 @@ class _AboutMeViewState extends State<AboutMeView> {
       height: 60,
     ));
 
+    widgetStack.add(Text("In my free time I enjoy:",
+        textAlign: TextAlign.center,
+        style: GoogleFonts.prompt(
+          textStyle: TextStyle(
+            fontSize: 22.sp,
+            fontWeight: FontWeight.bold,
+            color: offWhite,
+          ),
+        )));
+
+    widgetStack.add(SizedBox(
+      height: 5,
+    ));
+
+    widgetStack.add(FreeTimePoint(freeTimeAction: "Practicing guitar"));
+    widgetStack.add(FreeTimePoint(freeTimeAction: "Learning German"));
+    widgetStack.add(FreeTimePoint(freeTimeAction: "Body Building"));
+    widgetStack.add(FreeTimePoint(freeTimeAction: "Developing Cyder"));
+    widgetStack
+        .add(FreeTimePoint(freeTimeAction: "Flutter projects (like this one)"));
+
+    widgetStack.add(SizedBox(
+      height: 55,
+    ));
+
     widgetStack.add(Text("Recently Played Spotify Tracks",
         textAlign: TextAlign.center,
         style: GoogleFonts.prompt(
@@ -179,6 +204,30 @@ class SpotifySong extends StatelessWidget {
           )
         ],
       )),
+    );
+  }
+}
+
+class FreeTimePoint extends StatelessWidget {
+  const FreeTimePoint({Key? key, required this.freeTimeAction});
+
+  final String freeTimeAction;
+
+  final String bulletPoint = '•';
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: Text(bulletPoint + " " + freeTimeAction,
+          textAlign: TextAlign.center,
+          style: GoogleFonts.prompt(
+            textStyle: TextStyle(
+              fontSize: 18.sp,
+              fontWeight: FontWeight.bold,
+              color: offWhite,
+            ),
+          )),
     );
   }
 }

@@ -53,7 +53,7 @@ List<Widget> descriptionHolderLines = [
           color: Color.fromARGB(255, 91, 104, 119),
         ),
       )),
-       Padding(
+  Padding(
       padding: const EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
       child: Container(
         width: 400 - 60.0,
@@ -63,7 +63,7 @@ List<Widget> descriptionHolderLines = [
           color: Color.fromARGB(255, 91, 104, 119),
         ),
       )),
-       Padding(
+  Padding(
       padding: const EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
       child: Container(
         width: 400 - 60.0,
@@ -73,7 +73,7 @@ List<Widget> descriptionHolderLines = [
           color: Color.fromARGB(255, 91, 104, 119),
         ),
       )),
-       Padding(
+  Padding(
       padding: const EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
       child: Container(
         width: 400 - 60.0,
@@ -83,7 +83,7 @@ List<Widget> descriptionHolderLines = [
           color: Color.fromARGB(255, 91, 104, 119),
         ),
       )),
-       Padding(
+  Padding(
       padding: const EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
       child: Container(
         width: 400 - 60.0,
