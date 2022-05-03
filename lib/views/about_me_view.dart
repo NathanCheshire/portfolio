@@ -26,6 +26,8 @@ class _AboutMeViewState extends State<AboutMeView> {
       throw new Exception("Error parsing contents of $file");
     }
 
+    double innerPadding = 20;
+
     for (int i = 0; i < parts.length / 2; i++) {
       widgetStack.add(Text(parts[2 * i],
           textAlign: TextAlign.center,
@@ -37,7 +39,7 @@ class _AboutMeViewState extends State<AboutMeView> {
             ),
           )));
       widgetStack.add(SizedBox(
-        height: 20,
+        height: innerPadding,
       ));
       widgetStack.add(Text(parts[2 * i + 1],
           textAlign: TextAlign.center,
@@ -49,15 +51,17 @@ class _AboutMeViewState extends State<AboutMeView> {
             ),
           )));
       widgetStack.add(SizedBox(
-        height: 20,
+        height: innerPadding,
       ));
     }
 
+    double outerPadding = 60;
+
     widgetStack.add(SizedBox(
-      height: 60,
+      height: outerPadding,
     ));
 
-    widgetStack.add(Text("In my free time I enjoy:",
+    widgetStack.add(Text("In my free time I enjoy",
         textAlign: TextAlign.center,
         style: GoogleFonts.prompt(
           textStyle: TextStyle(
@@ -79,7 +83,7 @@ class _AboutMeViewState extends State<AboutMeView> {
         .add(FreeTimePoint(freeTimeAction: "Flutter projects (like this one)"));
 
     widgetStack.add(SizedBox(
-      height: 55,
+      height: outerPadding - 5,
     ));
 
     widgetStack.add(Text("Recently Played Spotify Tracks",
@@ -187,7 +191,7 @@ class SpotifySong extends StatelessWidget {
               height: height,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(imagePath),
+                  image: AssetImage(imagePath),
                 ),
               )),
           Padding(

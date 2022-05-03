@@ -139,7 +139,7 @@ class DegreeWidget extends StatelessWidget {
                 height: degreeUseHeight,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage("assets/jpg/se_diploma.jpg"),
+                    image: AssetImage("assets/jpg/se_diploma.jpg"),
                   ),
                 )),
           ],
