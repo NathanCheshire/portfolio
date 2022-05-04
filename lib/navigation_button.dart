@@ -41,31 +41,48 @@ class _NavigationButtonState extends State<NavigationButton> {
     return MouseRegion(
         onEnter: _mouseEntered,
         onExit: _mouseExited,
-        child: CupertinoButton(
-            child: Text(widget.text,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.passionOne(
-                  textStyle: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: this.widget.index == getCurrentIndex()
-                        ? (primaryThemeColor)
-                        : (_hovered ? primaryThemeColor : offWhite),
-                  ),
-                )),
-            onPressed: () {
-              if (getCurrentIndex() == this.widget.index) {
-                return;
-              }
-
-              setCurrentIndex(this.widget.index);
-              Navigator.push(
-                  context,
-                  PortfoliPageRoute(
-                      widget: PortfolioBaseView(
-                    index: this.widget.index,
-                    flexibleChildWidget: widget.flexibleChildWidget,
-                  )));
-            }));
+        child: AnimatedContainer(
+          duration: Duration(seconds: 1),
+          width: _hovered ? 200 : 150,
+          child: Text(widget.text,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.passionOne(
+                textStyle: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: this.widget.index == getCurrentIndex()
+                      ? (primaryThemeColor)
+                      : (_hovered ? primaryThemeColor : offWhite),
+                ),
+              )),
+        ));
   }
 }
+
+
+// CupertinoButton(
+//             child: Text(widget.text,
+//                 textAlign: TextAlign.center,
+//                 style: GoogleFonts.passionOne(
+//                   textStyle: TextStyle(
+//                     fontSize: 20,
+//                     fontWeight: FontWeight.bold,
+//                     color: this.widget.index == getCurrentIndex()
+//                         ? (primaryThemeColor)
+//                         : (_hovered ? primaryThemeColor : offWhite),
+//                   ),
+//                 )),
+//             onPressed: () {
+//               if (getCurrentIndex() == this.widget.index) {
+//                 return;
+//               }
+
+//               setCurrentIndex(this.widget.index);
+//               Navigator.push(
+//                   context,
+//                   PortfoliPageRoute(
+//                       widget: PortfolioBaseView(
+//                     index: this.widget.index,
+//                     flexibleChildWidget: widget.flexibleChildWidget,
+//                   )));
+//             }))
