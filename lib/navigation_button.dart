@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/portfolio_colors.dart';
 import 'package:portfolio/constants/portfolio_numbers.dart';
@@ -38,51 +39,38 @@ class _NavigationButtonState extends State<NavigationButton> {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
+      child: MouseRegion(
         onEnter: _mouseEntered,
         onExit: _mouseExited,
-        child: AnimatedContainer(
-          duration: Duration(seconds: 1),
-          width: _hovered ? 200 : 150,
-          child: Text(widget.text,
-              textAlign: TextAlign.center,
-              style: GoogleFonts.passionOne(
-                textStyle: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: this.widget.index == getCurrentIndex()
-                      ? (primaryThemeColor)
-                      : (_hovered ? primaryThemeColor : offWhite),
-                ),
-              )),
-        ));
+        child: GestureDetector(
+            child: Text(widget.text,
+                textAlign: TextAlign.center,
+                style: GoogleFonts.passionOne(
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: this.widget.index == getCurrentIndex()
+                        ? (primaryThemeColor)
+                        : (_hovered ? primaryThemeColor : offWhite),
+                  ),
+                )),
+            onTap: () {
+              if (getCurrentIndex() == this.widget.index) {
+                return;
+              }
+
+              setCurrentIndex(this.widget.index);
+              Navigator.push(
+                  context,
+                  PortfoliPageRoute(
+                      widget: PortfolioBaseView(
+                    index: this.widget.index,
+                    flexibleChildWidget: widget.flexibleChildWidget,
+                  )));
+            }),
+      ),
+    );
   }
 }
-
-
-// CupertinoButton(
-//             child: Text(widget.text,
-//                 textAlign: TextAlign.center,
-//                 style: GoogleFonts.passionOne(
-//                   textStyle: TextStyle(
-//                     fontSize: 20,
-//                     fontWeight: FontWeight.bold,
-//                     color: this.widget.index == getCurrentIndex()
-//                         ? (primaryThemeColor)
-//                         : (_hovered ? primaryThemeColor : offWhite),
-//                   ),
-//                 )),
-//             onPressed: () {
-//               if (getCurrentIndex() == this.widget.index) {
-//                 return;
-//               }
-
-//               setCurrentIndex(this.widget.index);
-//               Navigator.push(
-//                   context,
-//                   PortfoliPageRoute(
-//                       widget: PortfolioBaseView(
-//                     index: this.widget.index,
-//                     flexibleChildWidget: widget.flexibleChildWidget,
-//                   )));
-//             }))
