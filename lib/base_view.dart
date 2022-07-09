@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:portfolio/constants/portfolio_colors.dart';
 import 'package:portfolio/constants/portfolio_numbers.dart';
-import 'package:portfolio/views/blog_view.dart';
 import 'package:portfolio/views/home_view.dart';
 
 import 'bottom_bar.dart';
@@ -82,8 +81,6 @@ class _PrimaryPortfolioViewState extends State<PrimaryPortfolioView>
                     text: "Experience",
                     index: 4,
                     flexibleChildWidget: Container()),
-                NavigationButton(
-                    text: "Blog", index: 5, flexibleChildWidget: BlogView()),
               ],
             ),
           ),

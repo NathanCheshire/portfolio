@@ -109,33 +109,28 @@ class _AboutMeViewState extends State<AboutMeView> {
         SpotifySong(
           width: 100,
           height: 100,
-          imagePath: "assets/jpg/music_placeholder.jpg",
+          imagePath: "assets/jpg/Halsey.jpg",
           title: "Be Kind (with Halsey)",
         ),
         SpotifySong(
           width: 100,
           height: 100,
-          imagePath: "assets/jpg/music_placeholder.jpg",
-          title: "Be Kind (with Halsey)",
+          imagePath: "assets/jpg/Future.jpg",
+          title: "Solitaires (feat. Travis Scott)",
         ),
         SpotifySong(
           width: 100,
           height: 100,
-          imagePath: "assets/jpg/music_placeholder.jpg",
-          title: "Be Kind (with Halsey)",
+          imagePath: "assets/jpg/MGK.png",
+          title: "maybe (feat. Bring Me The Horizon)",
         ),
         SpotifySong(
           width: 100,
           height: 100,
-          imagePath: "assets/jpg/music_placeholder.jpg",
-          title: "Be Kind (with Halsey)",
+          imagePath: "assets/jpg/Migos.png",
+          title: "Supastars",
         ),
-        SpotifySong(
-          width: 100,
-          height: 100,
-          imagePath: "assets/jpg/music_placeholder.jpg",
-          title: "Be Kind (with Halsey)",
-        ),
+
       ],
     ));
 

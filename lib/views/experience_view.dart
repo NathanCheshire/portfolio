@@ -4,6 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/portfolio_colors.dart';
 
+// todo need a way to convert a docx to an experience txt that
+// we can parse
+
 class ExperienceView extends StatefulWidget {
   const ExperienceView({Key? key}) : super(key: key);
 

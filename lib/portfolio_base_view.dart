@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/portfolio_colors.dart';
 import 'package:portfolio/constants/portfolio_numbers.dart';
 import 'package:portfolio/views/about_me_view.dart';
-import 'package:portfolio/views/blog_view.dart';
 import 'package:portfolio/views/education_view.dart';
 import 'package:portfolio/views/experience_view.dart';
 import 'package:portfolio/views/github_view.dart';
@@ -101,10 +100,6 @@ class _PortfolioBaseViewState extends State<PortfolioBaseView> {
                           text: "Education",
                           index: 5,
                           flexibleChildWidget: EducationView()),
-                      NavigationButton(
-                          text: "Blog",
-                          index: 6,
-                          flexibleChildWidget: BlogView()),
                     ],
                   ),
                 ),
